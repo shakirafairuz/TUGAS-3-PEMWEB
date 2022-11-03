@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Manipulate DOM</title>
+    <style>
+      html {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        text-align: center;
+        max-width: 600px;
+        margin: 30px auto;
+        font-family: 'Times New Roman', Times, serif;
+        color: rgb(26, 133, 103);
+      }
+      h1 {
+        background-color: rgb(116, 181, 181);
+      }
+      button{
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="judul">Hello World</h1>
+    <div id="container">
+      <section id="a">
+        <p class="p1">paragraf 1</p>
+      </section>
+      <section id="b">
+        <p id="p2">paragraf 2</p>
+        <ul>
+          <li>item 1</li>
+          <li>item 2</li>
+          <li>item 3</li>
+        </ul>
+      </section>
+    </div>
+    <button id="tombol" value="">add paragraph</button>
+
+    <script>
+      const judul = document.getElementById("judul");
+      judul.innerText = "Hello World";
+      
+      const newParagraph = document.createElement("p");
+      const newParagraphText = document.createTextNode("Paragraf 3");
+      newParagraph.appendChild(newParagraphText);
+      
+      const divP = document.getElementById("container");
+      divP.appendChild(newParagraph);
+      let i = 4;
+      
+      function AddParagraph() {
+        if (i > 6) {
+          alert("Maaf paragraf sudah maksimal");
+        } else {
+          const newParagraphs = document.createElement("p");
+          const newParagraphTexts = document.createTextNode("Paragraf " + i);
+          newParagraphs.appendChild(newParagraphTexts);
+          const divPs = document.getElementById("container");
+          divPs.appendChild(newParagraphs);
+        }
+        i++;
+      }
+      const button = document.getElementById("tombol");
+      button.addEventListener("click", AddParagraph);
+      udul.addEventListener("click", function () {
+        judul.style.backgroundColor = "lightblue";
+      });
+
+    </script>
+  </body>
+</html>
